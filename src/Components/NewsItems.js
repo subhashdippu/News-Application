@@ -8,7 +8,7 @@ const NewsItems = (props) => {
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>
                     <p className="card-text">{props.desc}</p>
-                    <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+                    <p className="card-text"><small className="text-body-secondary">{new Date(props.date).toGMTString()}</small></p>
                     <a href="#" className="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
