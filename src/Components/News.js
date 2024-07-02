@@ -27,13 +27,18 @@ const News = (props) => {
         setArticles(articles.concat(parsadData.articles));
         setTotalResults(parsadData.totalResults);
     };
-
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+    document.title = ` ${capitalizeFirstLetter(
+        props.category
+    )} - NewsApp`;
     useEffect(() => {
         updateNews();
     }, []);
     return (
         <div className='container '>
-            <h1 className='text-center' style={{ margin: "25px 0px", marginTop: "90px" }}>News Application</h1>
+            <h1 className='text-center' style={{ margin: "25px 0px", marginTop: "90px" }}>NewsApp - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
             <InfiniteScroll
                 dataLength={articles.length}
                 next={fetchMoreData}

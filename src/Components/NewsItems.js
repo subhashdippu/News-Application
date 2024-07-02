@@ -5,7 +5,9 @@ const NewsItems = (props) => {
         <div >
             <div className="card" style={{ width: "25rem" }}>
                 <img src={!props.image ? "https://plus.unsplash.com/premium_photo-1688561384438-bfa9273e2c00?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmV3c3xlbnwwfHwwfHx8MA%3D%3D" : props.image} className="card-img-top" alt="..." />
-                <span style={{ zIndex: "1" }}
+                <span style={{
+                    zIndex: "1", left: "193%", margin: "10px", "margin-left": "-45px"
+                }}
                     className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     {props.source}
                     <span className="visually-hidden">unread messages</span>
