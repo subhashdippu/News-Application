@@ -11,23 +11,31 @@ const News = (props) => {
     const [totalResults, setTotalResults] = useState(0)
 
     const updateNews = async () => {
+        props.setProgress(0);
         let url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=843746d56f8a4018a7f351d14bded79f&page=${page}&category=${category}`
+        props.setProgress(20);
         setLoading(true)
         let data = await fetch(url)
         let parsadData = await data.json()
+        props.setProgress(60);
         setLoading(false)
         setArticles(articles.concat(parsadData.articles));
+        props.setProgress(100);
     }
 
     const fetchMoreData = async () => {
+        props.setProgress(0);
         setPage(page + 1)
         let url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=843746d56f8a4018a7f351d14bded79f&page=${page}&category=${category}`
+        props.setProgress(20);
         setLoading(true)
         let data = await fetch(url)
         let parsadData = await data.json()
+        props.setProgress(60);
         setLoading(false)
         setArticles(articles.concat(parsadData.articles));
         setTotalResults(parsadData.totalResults);
+        props.setProgress(100);
     };
 
     const capitalizeFirstLetter = (string) => {

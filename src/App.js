@@ -1,58 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Components/Navbar'
 import News from './Components/News'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import LoadingBar from "react-top-loading-bar";
 const App = () => {
+  const [progress, setProgress] = useState(0)
   return (
-    <div>
+    < div >
       <BrowserRouter>
         <Navbar />
+        <LoadingBar
+          color="red"
+          progress={progress}
+          height={16}
+          onLoaderFinished={() => setProgress(progress)}
+        />
         <Routes>
           <Route
             path='/' exact element={
-              <News key="general" category="general" country="in" />
+              <News setProgress={setProgress} key="general" category="general" country="in" />
             }
           />
           <Route
             path='/general' exact element={
-              <News key="general" category="general" country="in" />
+              <News setProgress={setProgress} key="general" category="general" country="in" />
             }
           />
           <Route
             path='/business' exact element={
-              <News key="business" category="business" country="in" />
+              <News setProgress={setProgress} key="business" category="business" country="in" />
             }
           />
           <Route
             path='/entertainment' exact element={
-              <News key="entertainment" category="entertainment" country="in" />
+              <News setProgress={setProgress} key="entertainment" category="entertainment" country="in" />
             }
           />
           <Route
             path='/health' exact element={
-              <News key="health" category="health" country="in" />
+              <News setProgress={setProgress} key="health" category="health" country="in" />
             }
           />
           <Route
             path='/science' exact element={
-              <News key="science" category="science" country="in" />
+              <News setProgress={setProgress} key="science" category="science" country="in" />
             }
           />
           <Route
             path='/sports' exact element={
-              <News key="sports" category="sports" country="in" />
+              <News setProgress={setProgress} key="sports" category="sports" country="in" />
             }
           />
           <Route
             path='/technology' exact element={
-              <News key="technology" category="technology" country="in" />
+              <News setProgress={setProgress} key="technology" category="technology" country="in" />
             }
           />
         </Routes>
       </BrowserRouter>
 
 
-    </div>
+    </ div>
   )
 }
 
