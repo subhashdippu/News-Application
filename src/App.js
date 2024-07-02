@@ -5,10 +5,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 const App = () => {
   return (
     <div>
-      {/* business entertainment general health science sports technology */}
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route
+            path='/' exact element={
+              <News key="general" category="general" country="in" />
+            }
+          />
           <Route
             path='/general' exact element={
               <News key="general" category="general" country="in" />
