@@ -3,14 +3,14 @@ import NewsItems from './NewsItems'
 import Spinner from './Spinner'
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const News = () => {
-
+const News = (props) => {
+    let { country, category } = props
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
     const [totalResults, setTotalResults] = useState(0)
     const updateNews = async () => {
-        let url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=843746d56f8a4018a7f351d14bded79f"
+        let url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=843746d56f8a4018a7f351d14bded79f&page=${page}&category=${category}`
         setLoading(true)
         let data = await fetch(url)
         let parsadData = await data.json()
@@ -19,7 +19,7 @@ const News = () => {
     }
     const fetchMoreData = async () => {
         setPage(page + 1)
-        let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=843746d56f8a4018a7f351d14bded79f&page=${page}`
+        let url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=843746d56f8a4018a7f351d14bded79f&page=${page}&category=${category}`
         setLoading(true)
         let data = await fetch(url)
         let parsadData = await data.json()
@@ -52,6 +52,7 @@ const News = () => {
                                     date={element.publishedAt}
                                     url={element.url}
                                     source={element.source.name}
+                                    author={element.author}
                                 />
                             </div>
                         )
