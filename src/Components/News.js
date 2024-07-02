@@ -32,8 +32,8 @@ const News = () => {
         updateNews();
     }, []);
     return (
-        <div className='container'>
-            <h1 className='text-center my-4'>News Application</h1>
+        <div className='container '>
+            <h1 className='text-center' style={{ margin: "25px 0px", marginTop: "90px" }}>News Application</h1>
             <InfiniteScroll
                 dataLength={articles.length}
                 next={fetchMoreData}
@@ -46,7 +46,13 @@ const News = () => {
                         return (
 
                             <div className='col-md-4'>
-                                <NewsItems title={element.title} desc={element.description} image={element.urlToImage} date={element.publishedAt} />
+                                <NewsItems title={element.title}
+                                    desc={element.description}
+                                    image={element.urlToImage}
+                                    date={element.publishedAt}
+                                    url={element.url}
+                                    source={element.source.name}
+                                />
                             </div>
                         )
                     })}
