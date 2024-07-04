@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <div>
             <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
@@ -32,6 +32,12 @@ const Navbar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/technology">Technology</Link>
                             </li>
                         </ul>
+                    </div>
+                    <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onClick={props.toggle} />
+                        <label className="form-check-label" for="flexCheckDefault">
+                            Switch Mode
+                        </label>
                     </div>
                 </div>
             </nav>

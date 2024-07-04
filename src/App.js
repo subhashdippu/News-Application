@@ -5,10 +5,23 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoadingBar from "react-top-loading-bar";
 const App = () => {
   const [progress, setProgress] = useState(0)
+  const [mode, setMode] = useState('dark')
+
+  const toggle = () => {
+    if (mode === 'dark') {
+      setMode('light')
+      document.body.style.backgroundColor = "white"
+      // document.body.style.backgroundColor = "#0d0833";
+    }
+    else {
+      setMode('dark')
+      document.body.style.backgroundColor = "black"
+    }
+  }
   return (
     < div >
       <BrowserRouter>
-        <Navbar />
+        <Navbar toggle={toggle} />
         <LoadingBar
           color="red"
           progress={progress}
