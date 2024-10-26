@@ -4,7 +4,7 @@ import Spinner from "./Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
 import PropTypes from "prop-types";
 
-const News = ({ country = "in", category = "general", setProgress }) => {
+const News = ({ category = "general", setProgress }) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -13,8 +13,7 @@ const News = ({ country = "in", category = "general", setProgress }) => {
   const updateNews = useCallback(async () => {
     try {
       setProgress(0);
-      const url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${process.env.REACT_APP_API_KEY}&page=${page}&category=${category}`;
-
+      let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_API_KEY}&page=${page}&category=${category}`;
       console.log("Fetching from URL:", url);
 
       setProgress(20);
@@ -33,7 +32,7 @@ const News = ({ country = "in", category = "general", setProgress }) => {
     } finally {
       setLoading(false);
     }
-  }, [country, category, page, setProgress]);
+  }, [category, page, setProgress]);
 
   const fetchMoreData = () => {
     setPage((prevPage) => prevPage + 1);
@@ -46,7 +45,7 @@ const News = ({ country = "in", category = "general", setProgress }) => {
   useEffect(() => {
     document.title = `${capitalizeFirstLetter(category)} - NewsApp`;
     updateNews();
-  }, [category, country, updateNews]);
+  }, [category, updateNews]);
 
   return (
     <div className="container">
