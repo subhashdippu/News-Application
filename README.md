@@ -1,12 +1,10 @@
-
 # News-App
 
 ## 📌 Introduction
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-A Simple News App built with React.js. In this app, there is a Home page, which will display top news from newsapi.org. News categories ranges from tech to entertainment. You can choose news category displayed on page. App is providing a smooth and amazing design with gestures effect. 
-
+A Simple News App built with React.js. In this app, there is a Home page, which will display top news from newsapi.org. News categories ranges from tech to entertainment. You can choose news category displayed on page. App is providing a smooth and amazing design with gestures effect.
 
 ## 🛠️ Installation Steps
 
@@ -36,9 +34,8 @@ npm install
 npm run start
 ```
 
-
 ## 📸 Screenshots
 
-<img src="./src/Screenshot2.png" />
+<img src="./src/Screenshot1.png" />
 
 <img src="./src/Screenshot2.png" />
